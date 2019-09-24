@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <hot-table :settings="hotSettings"></hot-table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Vue from "vue";
+import { HotTable } from "@handsontable/vue";
+import Handsontable from "handsontable";
 
 export default {
-  name: 'app',
+  el: "#app",
+  data: function() {
+    return {
+      hotSettings: {
+        data: Handsontable.helper.createSpreadsheetData(6, 10),
+        colHeaders: true
+      }
+    };
+  },
   components: {
-    HelloWorld
+    HotTable
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="../node_modules/handsontable/dist/handsontable.full.css" />
