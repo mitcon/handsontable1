@@ -15,7 +15,8 @@ export default {
     return {
       hotSettings: {
         data: Handsontable.helper.createSpreadsheetData(6, 10),
-        colHeaders: true
+        colHeaders: true,
+        licenseKey: "non-commercial-and-evaluation"
       }
     };
   },
